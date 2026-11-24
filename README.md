@@ -56,9 +56,15 @@ pip install -e ".[executor,dev]"
 pytest                                  # unit tests, no model or simulator needed
 ```
 
-Rendering and simulation use the `lightphyx` engine (three.js and Rapier in a headless browser), which is
-installed as a dependency. Build its Node server once and point `LIGHTPHYX_CLI` at
-`packages/server/dist/cli.js` of the engine checkout.
+Rendering and simulation use [Light-3js-phyx](https://github.com/dougefla/Light3jsPhyx), an engine built on
+three.js and Rapier that runs in a headless browser. Its Python SDK is installed as a dependency. Build
+its Node server once and point `LIGHTPHYX_CLI` at the result.
+
+```bash
+git clone https://github.com/dougefla/Light3jsPhyx && cd Light3jsPhyx
+npm ci && npm run build && npx playwright install chromium
+export LIGHTPHYX_CLI=$PWD/packages/server/dist/cli.js
+```
 
 Model access goes through any Responses-compatible endpoint. Put the credentials in `~/.env`.
 
@@ -99,6 +105,11 @@ One test evaluation of a Skill costs about 25 USD with `gpt-6.1-sol` at low reas
 
 The same loop is available through the `evo` command (`evo train`, `evo infer`, `evo test`), which
 prompts for the options and prints the command that it runs.
+
+## License
+
+The code and the ArtiAssembly dataset are released under the MIT License. See [LICENSE](LICENSE).
+The project page in `docs/` uses the Nerfies template under CC BY-SA 4.0.
 
 ## Citation
 

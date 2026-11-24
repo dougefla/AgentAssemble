@@ -37,3 +37,7 @@ the scaling and writes the template, and `subset_view.py` cuts the evaluation su
 ## Download
 
 The download link of the objects and of the prepared task view will be added here.
+
+## License
+
+ArtiAssembly is released under the MIT License.

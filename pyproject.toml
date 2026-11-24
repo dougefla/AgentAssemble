@@ -7,6 +7,7 @@ name = "agentassemble"
 version = "0.1.0"
 description = "AgentAssemble: self-improving agents for articulated 3D asset assembly (part meshes and a kinematic template to URDF)."
 requires-python = ">=3.10"
+license = {text = "MIT"}
 # Core runtime: OpenAI Agents SDK + Responses is the default training path.
 # claude-agent-sdk remains available only for the explicit legacy backend.
 # and reads YAML config. Use the `evo` CLI (or `python -m evo.engine.loop`),
@@ -23,10 +24,10 @@ dependencies = [
     "pyyaml",
     "questionary",   # interactive `evo` CLI (degrades to stdlib input() if absent)
     # Oracle renderer backend (three.js + Rapier headless sim). The Node server
-    # ships in the light-3js-phyx repo — point LIGHTPHYX_CLI at its
+    # ships in the Light3jsPhyx repo — point LIGHTPHYX_CLI at its
     # packages/server/dist/cli.js, or install the repo alongside and the SDK
-    # finds it. For local dev prefer: pip install -e <light-3js-phyx>/sdk/python
-    "lightphyx @ git+https://github.com/dougefla/light-3js-phyx.git@aadfa989573a503b7432dccf63d937e9b0531710#subdirectory=sdk/python",
+    # finds it. For local dev prefer: pip install -e <Light3jsPhyx>/sdk/python
+    "lightphyx @ git+https://github.com/dougefla/Light3jsPhyx.git@5bebaaf30f00db7e61da7caf60f33be403046937#subdirectory=sdk/python",
 ]
 
 [project.scripts]
