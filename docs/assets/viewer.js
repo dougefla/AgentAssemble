@@ -65,7 +65,7 @@ const ground = new THREE.Mesh(
 ground.rotation.x = -Math.PI / 2;
 ground.receiveShadow = true;
 scene.add(ground);
-const grid = new THREE.GridHelper(20, 40, 0xb3bac8, 0xd3d8e0);
+const grid = new THREE.GridHelper(20, 40, 0x3a3e4a, 0x22252d);
 grid.material.opacity = 0.5; grid.material.transparent = true;
 scene.add(grid);
 
