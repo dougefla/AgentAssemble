@@ -1,0 +1,101 @@
+{
+ "label": "Microscope",
+ "task": "task_222",
+ "slug": "microscope",
+ "up": "z",
+ "root": "link_0",
+ "links": [
+  "link_0",
+  "link_1",
+  "link_2",
+  "link_3",
+  "link_4"
+ ],
+ "joints": [
+  {
+   "name": "joint_0",
+   "type": "prismatic",
+   "parent": "link_0",
+   "child": "link_1",
+   "origin": [
+    0.0,
+    0.043,
+    0.10664
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -0.025,
+   "upper": 0.005
+  },
+  {
+   "name": "joint_1",
+   "type": "continuous",
+   "parent": "link_0",
+   "child": "link_2",
+   "origin": [
+    0.027,
+    0.074,
+    0.1156
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -3.14159,
+   "upper": 3.14159
+  },
+  {
+   "name": "joint_2",
+   "type": "continuous",
+   "parent": "link_0",
+   "child": "link_3",
+   "origin": [
+    0.0,
+    -0.025,
+    0.2081
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "lower": -3.14159,
+   "upper": 3.14159
+  },
+  {
+   "name": "joint_3",
+   "type": "revolute",
+   "parent": "link_0",
+   "child": "link_4",
+   "origin": [
+    0.0,
+    -0.015,
+    0.2524
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -0.7854,
+   "upper": 0.17453
+  }
+ ],
+ "bbox": {
+  "min": [
+   -0.09,
+   -0.1314,
+   -0.0
+  ],
+  "max": [
+   0.09,
+   0.11,
+   0.3689
+  ]
+ },
+ "faces": 57488
+}

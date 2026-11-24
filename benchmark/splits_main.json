@@ -1,0 +1,1743 @@
+[
+ {
+  "task_id": "task_000",
+  "object_id": "t1_001_laptop",
+  "name": "laptop",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "electronics",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_005",
+  "object_id": "t1_006_cash_box",
+  "name": "cash box",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "storage",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_013",
+  "object_id": "t1_014_toaster",
+  "name": "toaster",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "appliance",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_014",
+  "object_id": "t1_015_ceiling_fan",
+  "name": "ceiling fan",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "appliance",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_018",
+  "object_id": "t1_019_utility_knife",
+  "name": "utility knife",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "tool",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_020",
+  "object_id": "t1_021_interior_door",
+  "name": "interior door",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "building",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 2,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_023",
+  "object_id": "t1_027_swivel_bar_stool",
+  "name": "swivel bar stool",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "furniture",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_024",
+  "object_id": "t1_028_desk_globe",
+  "name": "desk globe",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "decor",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_025",
+  "object_id": "t1_029_wheelbarrow",
+  "name": "wheelbarrow",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "vehicle",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_027",
+  "object_id": "t1_101_paper_cutter",
+  "name": "paper cutter",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "office",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_028",
+  "object_id": "t1_102_chest_freezer",
+  "name": "chest freezer",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "appliance",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_030",
+  "object_id": "t2_031_toilet",
+  "name": "toilet",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "bathroom",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 3
+  }
+ },
+ {
+  "task_id": "task_033",
+  "object_id": "t2_034_refrigerator",
+  "name": "refrigerator",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_037",
+  "object_id": "t2_038_kitchen_faucet",
+  "name": "kitchen faucet",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "bathroom",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_038",
+  "object_id": "t2_039_folding_chair",
+  "name": "folding chair",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 2,
+   "continuous": 2
+  }
+ },
+ {
+  "task_id": "task_039",
+  "object_id": "t2_040_desk_lamp",
+  "name": "desk lamp",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "lighting",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 3
+  }
+ },
+ {
+  "task_id": "task_045",
+  "object_id": "t2_046_sliding_closet",
+  "name": "sliding closet",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_046",
+  "object_id": "t2_047_cabinet_door_and_drawer",
+  "name": "cabinet door and drawer",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 1,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_048",
+  "object_id": "t2_049_camera",
+  "name": "camera",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "electronics",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "revolute": 2,
+   "continuous": 3
+  }
+ },
+ {
+  "task_id": "task_054",
+  "object_id": "t2_055_monitor_arm",
+  "name": "monitor arm",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "office",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_055",
+  "object_id": "t2_056_bench_vise",
+  "name": "bench vise",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "tool",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "continuous": 2,
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_057",
+  "object_id": "t2_058_printer",
+  "name": "printer",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 1,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_058",
+  "object_id": "t2_059_garden_shears",
+  "name": "garden shears",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "tool",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_059",
+  "object_id": "t2_060_ironing_board",
+  "name": "ironing board",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "household",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 3
+  }
+ },
+ {
+  "task_id": "task_064",
+  "object_id": "t3_065_french_door_refrigerator",
+  "name": "french door refrigerator",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "appliance",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 2,
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_065",
+  "object_id": "t3_066_tool_chest",
+  "name": "tool chest",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "tool",
+  "n_links": 8,
+  "n_joints": 7,
+  "joint_types": {
+   "revolute": 3,
+   "prismatic": 4
+  }
+ },
+ {
+  "task_id": "task_067",
+  "object_id": "t3_068_wheelchair",
+  "name": "wheelchair",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "medical",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "continuous": 6,
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_069",
+  "object_id": "t3_071_bicycle",
+  "name": "bicycle",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "vehicle",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "revolute": 3,
+   "continuous": 3
+  }
+ },
+ {
+  "task_id": "task_082",
+  "object_id": "t3_084_robot_arm",
+  "name": "robot arm",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "robot",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_083",
+  "object_id": "t3_085_workbench",
+  "name": "workbench",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "tool",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "prismatic": 3,
+   "continuous": 1,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_089",
+  "object_id": "t4_090_industrial_robot",
+  "name": "industrial robot",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 4,
+  "category": "robot",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "revolute": 6,
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_091",
+  "object_id": "t4_092_jewelry_armoire",
+  "name": "jewelry armoire",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 4,
+  "category": "furniture",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "revolute": 3,
+   "prismatic": 5
+  }
+ },
+ {
+  "task_id": "task_095",
+  "object_id": "t4_096_pedestal_fan",
+  "name": "pedestal fan",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 4,
+  "category": "appliance",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "prismatic": 5,
+   "revolute": 2,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_099",
+  "object_id": "t4_100_wooden_mannequin",
+  "name": "wooden mannequin",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 4,
+  "category": "decor",
+  "n_links": 15,
+  "n_joints": 5,
+  "joint_types": {
+   "revolute": 5
+  }
+ },
+ {
+  "task_id": "task_106",
+  "object_id": "t1_119_piano_bench",
+  "name": "piano bench",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "furniture",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_107",
+  "object_id": "t1_120_deck_storage_box",
+  "name": "deck storage box",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "garden",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_108",
+  "object_id": "t1_121_mail_slot",
+  "name": "mail slot",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "building",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_109",
+  "object_id": "t1_122_garden_hose_reel",
+  "name": "garden hose reel",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "garden",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "continuous": 2
+  }
+ },
+ {
+  "task_id": "task_111",
+  "object_id": "t1_124_music_box",
+  "name": "music box",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 1,
+  "category": "decor",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 1,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_112",
+  "object_id": "t1_125_tape_measure",
+  "name": "tape measure",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "tool",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_113",
+  "object_id": "t1_126_clothespin",
+  "name": "clothespin",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "household",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_117",
+  "object_id": "t1_130_salad_spinner",
+  "name": "salad spinner",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "kitchen",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_119",
+  "object_id": "t1_132_sliding_patio_door",
+  "name": "sliding patio door",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "building",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_122",
+  "object_id": "t1_135_cat_flap",
+  "name": "cat flap",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "building",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_123",
+  "object_id": "t1_136_school_desk",
+  "name": "school desk",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "furniture",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_126",
+  "object_id": "t1_139_drop_leaf_wall_table",
+  "name": "drop-leaf wall table",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "furniture",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_128",
+  "object_id": "t1_141_keyboard_tray",
+  "name": "keyboard tray",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "office",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_129",
+  "object_id": "t1_142_dvd_player",
+  "name": "dvd player",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "electronics",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_130",
+  "object_id": "t1_143_key_cabinet",
+  "name": "key cabinet",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "security",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_131",
+  "object_id": "t1_144_breaker_panel",
+  "name": "breaker panel",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "building",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_132",
+  "object_id": "t1_145_wall_thermostat",
+  "name": "wall thermostat",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "electronics",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_133",
+  "object_id": "t1_146_dimmer_switch",
+  "name": "dimmer switch",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 1,
+  "category": "electronics",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_137",
+  "object_id": "t1_150_dog_crate",
+  "name": "dog crate",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "household",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_138",
+  "object_id": "t1_151_pull_out_trash_cabinet",
+  "name": "pull-out trash cabinet",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "kitchen",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_140",
+  "object_id": "t1_153_manual_coffee_grinder",
+  "name": "manual coffee grinder",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "kitchen",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "continuous": 2,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_142",
+  "object_id": "t1_155_rotary_grater",
+  "name": "rotary grater",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "kitchen",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 2,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_144",
+  "object_id": "t1_157_pogo_stick",
+  "name": "pogo stick",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "toy",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_145",
+  "object_id": "t1_158_seesaw",
+  "name": "seesaw",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "toy",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_148",
+  "object_id": "t1_161_fidget_spinner",
+  "name": "fidget spinner",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "toy",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_149",
+  "object_id": "t1_162_hamster_wheel",
+  "name": "hamster wheel",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "household",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_150",
+  "object_id": "t1_163_weather_vane",
+  "name": "weather vane",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "decor",
+  "n_links": 2,
+  "n_joints": 1,
+  "joint_types": {
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_156",
+  "object_id": "t1_169_can_crusher",
+  "name": "can crusher",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "household",
+  "n_links": 6,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 3,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_157",
+  "object_id": "t1_170_c_clamp",
+  "name": "c-clamp",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 1,
+  "category": "tool",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "prismatic": 2,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_160",
+  "object_id": "t2_105_cordless_drill",
+  "name": "cordless drill",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "tool",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "continuous": 1,
+   "revolute": 1,
+   "prismatic": 4
+  }
+ },
+ {
+  "task_id": "task_161",
+  "object_id": "t2_106_mirror_cabinet",
+  "name": "mirror cabinet",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "bathroom",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_162",
+  "object_id": "t2_173_turntable",
+  "name": "turntable",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "electronics",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "continuous": 1,
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_166",
+  "object_id": "t2_177_stand_mixer",
+  "name": "stand mixer",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 5,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 2,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_167",
+  "object_id": "t2_178_drip_coffee_maker",
+  "name": "drip coffee maker",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_169",
+  "object_id": "t2_180_double_wall_oven",
+  "name": "double wall oven",
+  "split": "test",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_171",
+  "object_id": "t2_182_water_dispenser",
+  "name": "water dispenser",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_173",
+  "object_id": "t2_184_clothes_dryer",
+  "name": "clothes dryer",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "continuous": 1,
+   "revolute": 1,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_174",
+  "object_id": "t2_185_table_fan",
+  "name": "table fan",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "appliance",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 2,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_175",
+  "object_id": "t2_186_floor_lamp",
+  "name": "floor lamp",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "lighting",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_176",
+  "object_id": "t2_187_swing_arm_wall_lamp",
+  "name": "swing-arm wall lamp",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "lighting",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 3
+  }
+ },
+ {
+  "task_id": "task_177",
+  "object_id": "t2_188_vanity_mirror",
+  "name": "vanity mirror",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "bathroom",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_179",
+  "object_id": "t2_190_computer_desk",
+  "name": "computer desk",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_181",
+  "object_id": "t2_192_china_cabinet",
+  "name": "china cabinet",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "prismatic": 1,
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_182",
+  "object_id": "t2_193_pantry_cabinet",
+  "name": "pantry cabinet",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_183",
+  "object_id": "t2_194_shoe_cabinet",
+  "name": "shoe cabinet",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "revolute": 6
+  }
+ },
+ {
+  "task_id": "task_186",
+  "object_id": "t2_197_high_chair",
+  "name": "high chair",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "furniture",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 1,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_187",
+  "object_id": "t2_198_push_lawn_mower",
+  "name": "push lawn mower",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "garden",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "revolute": 1,
+   "continuous": 4
+  }
+ },
+ {
+  "task_id": "task_188",
+  "object_id": "t2_199_driveway_gate",
+  "name": "driveway gate",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "building",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_191",
+  "object_id": "t2_202_dutch_door",
+  "name": "dutch door",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "building",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_193",
+  "object_id": "t2_204_sliding_shower_door",
+  "name": "sliding shower door",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "bathroom",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_200",
+  "object_id": "t2_211_drill_press",
+  "name": "drill press",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "tool",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "prismatic": 2,
+   "continuous": 2,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_201",
+  "object_id": "t2_212_telescope",
+  "name": "telescope",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "science",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "continuous": 2,
+   "revolute": 1,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_203",
+  "object_id": "t2_214_cash_register",
+  "name": "cash register",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "retail",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 1,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_208",
+  "object_id": "t2_219_picnic_basket",
+  "name": "picnic basket",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 2,
+  "category": "household",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 2
+  }
+ },
+ {
+  "task_id": "task_209",
+  "object_id": "t2_220_toolbox",
+  "name": "toolbox",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "tool",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_210",
+  "object_id": "t2_221_folding_treadmill",
+  "name": "folding treadmill",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "sports",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "revolute": 3,
+   "prismatic": 1,
+   "continuous": 2
+  }
+ },
+ {
+  "task_id": "task_212",
+  "object_id": "t2_223_weight_bench",
+  "name": "weight bench",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "sports",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_213",
+  "object_id": "t2_224_toy_helicopter",
+  "name": "toy helicopter",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "toy",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "continuous": 2
+  }
+ },
+ {
+  "task_id": "task_215",
+  "object_id": "t2_226_cuckoo_clock",
+  "name": "cuckoo clock",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 2,
+  "category": "decor",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 2,
+   "continuous": 2
+  }
+ },
+ {
+  "task_id": "task_217",
+  "object_id": "t2_228_music_stand",
+  "name": "music stand",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "instrument",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "prismatic": 1,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_218",
+  "object_id": "t2_229_camera_gimbal",
+  "name": "camera gimbal",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "photo",
+  "n_links": 4,
+  "n_joints": 3,
+  "joint_types": {
+   "revolute": 3
+  }
+ },
+ {
+  "task_id": "task_220",
+  "object_id": "t2_231_tv_wall_mount",
+  "name": "tv wall mount",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "electronics",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_221",
+  "object_id": "t2_232_desktop_pc",
+  "name": "desktop pc",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 2,
+  "category": "electronics",
+  "n_links": 3,
+  "n_joints": 2,
+  "joint_types": {
+   "revolute": 1,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_222",
+  "object_id": "t3_107_microscope",
+  "name": "microscope",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "science",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "prismatic": 1,
+   "continuous": 2,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_224",
+  "object_id": "t3_109_espresso_machine",
+  "name": "espresso machine",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "appliance",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "revolute": 3,
+   "continuous": 1,
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_225",
+  "object_id": "t3_233_tricycle",
+  "name": "tricycle",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "vehicle",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "revolute": 1,
+   "continuous": 5
+  }
+ },
+ {
+  "task_id": "task_231",
+  "object_id": "t3_239_dollhouse",
+  "name": "dollhouse",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "toy",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_237",
+  "object_id": "t3_245_credenza",
+  "name": "credenza",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 3,
+  "category": "furniture",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "prismatic": 4
+  }
+ },
+ {
+  "task_id": "task_239",
+  "object_id": "t3_247_vanity_table",
+  "name": "vanity table",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "furniture",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 1,
+   "prismatic": 3
+  }
+ },
+ {
+  "task_id": "task_242",
+  "object_id": "t3_250_entertainment_center",
+  "name": "entertainment center",
+  "split": "val",
+  "seed_result": "always",
+  "tier": 3,
+  "category": "furniture",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 2,
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_244",
+  "object_id": "t3_252_exam_table",
+  "name": "exam table",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "medical",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "revolute": 2,
+   "prismatic": 3
+  }
+ },
+ {
+  "task_id": "task_247",
+  "object_id": "t3_255_hose_reel_cart",
+  "name": "hose reel cart",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "garden",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "continuous": 4,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_248",
+  "object_id": "t3_256_bifold_closet_doors",
+  "name": "bifold closet doors",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "building",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_249",
+  "object_id": "t3_257_jalousie_window",
+  "name": "jalousie window",
+  "split": "train",
+  "seed_result": "always",
+  "tier": 3,
+  "category": "building",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "revolute": 6
+  }
+ },
+ {
+  "task_id": "task_253",
+  "object_id": "t3_261_headphones",
+  "name": "headphones",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "electronics",
+  "n_links": 7,
+  "n_joints": 6,
+  "joint_types": {
+   "prismatic": 2,
+   "revolute": 4
+  }
+ },
+ {
+  "task_id": "task_257",
+  "object_id": "t3_265_pull_out_pantry_cabinet",
+  "name": "pull-out pantry cabinet",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "kitchen",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "revolute": 2,
+   "prismatic": 2
+  }
+ },
+ {
+  "task_id": "task_262",
+  "object_id": "t3_270_pinball_machine",
+  "name": "pinball machine",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "toy",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "revolute": 4,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_263",
+  "object_id": "t3_271_slot_machine",
+  "name": "slot machine",
+  "split": "test",
+  "seed_result": "never_high",
+  "tier": 3,
+  "category": "toy",
+  "n_links": 5,
+  "n_joints": 4,
+  "joint_types": {
+   "continuous": 3,
+   "revolute": 1
+  }
+ },
+ {
+  "task_id": "task_268",
+  "object_id": "t3_276_rototiller",
+  "name": "rototiller",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "garden",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "continuous": 2,
+   "revolute": 3
+  }
+ },
+ {
+  "task_id": "task_272",
+  "object_id": "t3_280_toy_castle",
+  "name": "toy castle",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 3,
+  "category": "toy",
+  "n_links": 6,
+  "n_joints": 5,
+  "joint_types": {
+   "revolute": 3,
+   "prismatic": 1,
+   "continuous": 1
+  }
+ },
+ {
+  "task_id": "task_284",
+  "object_id": "t4_289_track_lighting",
+  "name": "track lighting",
+  "split": "val",
+  "seed_result": "never_low",
+  "tier": 4,
+  "category": "lighting",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "revolute": 8
+  }
+ },
+ {
+  "task_id": "task_291",
+  "object_id": "t4_296_humanoid_torso",
+  "name": "humanoid torso",
+  "split": "test",
+  "seed_result": "never_low",
+  "tier": 4,
+  "category": "robot",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "revolute": 8
+  }
+ },
+ {
+  "task_id": "task_294",
+  "object_id": "t4_299_rolling_toolbox",
+  "name": "rolling toolbox",
+  "split": "train",
+  "seed_result": "never_high",
+  "tier": 4,
+  "category": "tool",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "revolute": 5,
+   "continuous": 2,
+   "prismatic": 1
+  }
+ },
+ {
+  "task_id": "task_297",
+  "object_id": "t4_302_wall_unit",
+  "name": "wall unit",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 4,
+  "category": "furniture",
+  "n_links": 9,
+  "n_joints": 8,
+  "joint_types": {
+   "revolute": 4,
+   "prismatic": 4
+  }
+ },
+ {
+  "task_id": "task_301",
+  "object_id": "t4_306_toy_ferris_wheel",
+  "name": "toy ferris wheel",
+  "split": "train",
+  "seed_result": "never_low",
+  "tier": 4,
+  "category": "toy",
+  "n_links": 8,
+  "n_joints": 7,
+  "joint_types": {
+   "continuous": 7
+  }
+ },
+ {
+  "task_id": "task_306",
+  "object_id": "t4_311_jewelry_counter",
+  "name": "jewelry counter",
+  "split": "val",
+  "seed_result": "never_high",
+  "tier": 4,
+  "category": "retail",
+  "n_links": 10,
+  "n_joints": 7,
+  "joint_types": {
+   "revolute": 1,
+   "prismatic": 6
+  }
+ }
+]

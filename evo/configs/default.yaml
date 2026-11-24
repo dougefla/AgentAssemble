@@ -1,0 +1,97 @@
+# Co-evolution configuration for the /assemble skill.
+#
+# ONLY the keys below are read by EvoConfig.from_yaml (evo/engine/loop.py);
+# every one is overridable on the `evo` / loop CLI. Oracle thresholds
+# are NOT configured here — they live in code (evo/oracle/check_urdf.py,
+# class Thresholds). Skill dir + output root default in code (EvoConfig).
+
+evolution:
+  max_rounds: 5             # outer oracle rounds
+  executor_max_turns: 60    # max agent turns per executor run
+  seed: 42
+
+  # Adaptive Train sampling within each outer round. Run Train in chunks of
+  # 10. One blocking API/tool/MCP/sim-worker error stops adding immediately;
+  # repeated objective/workflow failures stop adding Train; otherwise add
+  # another 10 up to the 69-example Train split. Train then hands its
+  # evidence directly to Generator. Validation is a separate evaluation run.
+  adaptive_train: true
+  train_increment: 10
+  max_train_samples: 69
+  objective_failure_stop_count: 3
+  workflow_failure_stop_count: 2
+
+  # Immediately replay the exact Train assets completed in the round with the
+  # Generator's candidate skill. Require a complete paired replay, no helper
+  # errors or critical-check regressions, and strict objective improvement.
+  # Disabled on this branch: every Generator turn is adopted as-is; the
+  # per-round evaluation and the held-out curve are the only judges.
+  candidate_ab_test: false
+  candidate_ab_min_samples: 10
+
+  # Contract-repair attempts are recorded but do not consume max_rounds.
+  # Stop for an explicit skill fix if the same lineage cannot pass its
+  # compile/import/smoke gate and exact-sample replay within this budget.
+  max_contract_repair_attempts: 3
+
+  # A candidate rejected before A/B (no journal, frozen contract edited, preflight
+  # import/signature/smoke failure) re-runs only the Generator, in the same round,
+  # with the reason shown — up to this many extra turns — before the round itself
+  # is repeated as a contract-repair attempt.
+  generator_repair_retries: 2
+
+  # Independent Generator updates per round. Each update is one self-contained
+  # change, A/B-tested on the round's assets against the state left by the
+  # previous accepted update, so every change gets its own verdict. Costs one
+  # candidate replay per update.
+  updates_per_round: 1
+
+  # Safety ceiling on try_skill smoke tests per Generator turn: one real
+  # executor session each, always on the first Train task of the batch,
+  # reported as problems (no oracle score); the Generator repeats until the
+  # test is clean. ~2 min and a few cents each. 0 disables the tool.
+  generator_trials_per_turn: 10
+
+  # Retry stochastic Executor-authored Python syntax/call mistakes immediately.
+  # These retries do not count as Generator contract-repair attempts.
+  executor_code_retries: 1
+
+  # Legacy fixed batch sampler, used only when adaptive_train=false. 0 runs
+  # the full filtered pool; values >0 use the difficulty ratio below.
+  batch_size: 0             # full filtered pool in standalone evaluation
+  batch_ratio:
+    easy: 3
+    medium: 3
+    hard: 2
+
+data:
+  # ArtVIP Assembly 115: 69 train / 17 validation / 29 test. Set
+  # EVO_DATASET_ROOT to its root (preferred), or set the two paths below.
+  #   tasks: tasks_root/<task_id>/<instance>/parts/*.obj
+  #   gt:    gt_root/<task_id>/<instance>/scene.urdf
+  tasks_root: ${EVO_DATA_ROOT}
+  gt_root: ${EVO_GT_ROOT}
+  splits: train             # validation runs separately with --no-generator
+
+execution:
+  # Legacy key names kept for config compat (Blender-era); they now drive
+  # the sim worker: blender_mode maps to `headless`, mcp_port to
+  # `sim_base_port`.
+  blender_mode: headless    # headless (compat flag) | mcp
+  max_parallel: 2           # concurrent sim workers; ports [mcp_port, mcp_port+N-1]
+  mcp_port: 9876            # base sim-worker port
+  # Resident-memory cap per sim worker (MB). The worker interrupts a snippet
+  # that crosses it (and tells the executor to load meshes without textures);
+  # a snippet it cannot interrupt gets the worker killed after 10 s. 0 = off.
+  sim_worker_max_rss_mb: 6144
+
+agents:
+  # All five model-backed roles (executor, generator, subagent-oracle judge,
+  # and the two in-executor validate-* specialists) run on one model at one
+  # effort, so a round's outcome is attributable to the skill rather than to
+  # a model mix. Defaults live in evo/engine/model_defaults.py; the two
+  # validators are declared in skills/*/agents/*.md frontmatter.
+  executor_model: gpt-6.1-sol
+  generator_model: gpt-6.1-sol
+  executor_backend: responses
+  generator_backend: responses

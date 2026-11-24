@@ -1,0 +1,37 @@
+# Main experiment of the paper: the 120-object evaluation subset of ArtiAssembly (train 40 / val 40 / test 40).
+# The subset is drawn from a screening of the seed Skill with 3 sessions per object on the 213 eligible objects
+# (scripts/experiments/build_subset.py, benchmark/splits_main.json). Set EVO_DATASET_ROOT to the subset folder.
+evolution:
+  max_rounds: 12
+  executor_max_turns: 60
+  seed: 42
+  executor_reps: 1
+  adaptive_train: false        # full train pool every round
+  batch_size: 0                # 0 = the whole filtered pool
+  candidate_ab_test: false
+  max_contract_repair_attempts: 3
+  generator_repair_retries: 2
+  updates_per_round: 1
+  generator_trials_per_turn: 10
+  executor_code_retries: 1
+  transient_retries: 6
+
+paths:
+  output_root: runs
+
+data:
+  tasks_root: ${EVO_DATASET_ROOT}/tasks
+  gt_root: ${EVO_DATASET_ROOT}/gt
+  splits: train
+
+execution:
+  blender_mode: headless
+  max_parallel: 13
+  mcp_port: 9876
+  sim_worker_max_rss_mb: 6144
+
+agents:
+  executor_model: gpt-6.1-sol
+  generator_model: gpt-6.1-sol
+  executor_backend: responses
+  generator_backend: responses

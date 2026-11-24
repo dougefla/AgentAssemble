@@ -1,0 +1,447 @@
+{
+ "note": "run 3 round 1: Generator candidate replayed on the same 10 assets. Paired continuous score exactly neutral (3 up, 2 down, 5 flat); motion_direction 4->1 while rest_pose 3->5 — a net-zero trade between foundational checks, on the check measured at 70% flip rate. Rejecting this is rejecting noise.",
+ "baseline": {
+  "task_01/22": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] Rest poses align across all four views with φ=0° (minor handle appearance difference only). Both joints are prismatic drawer slides, but the motion progression is reversed: GT goes from open at 0% to closed at 100%, while prediction goes from closed at 0% to open at 100%. | $0.2307 / 44s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_01/32": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[1/3 votes PASS] Only φ=0 aligns the cabinet front/back faces, but both predicted doors are vertically flipped: their thick wooden rails are at the top instead of the GT bottom; φ=90/180/270 misalign the front and rear faces. Both joints are revolute hinges, but the predicted right-door q progression is reversed relative to GT joint_0 (pred goes closed-to-open while GT goes open-to-closed); the left-door motion matches. | $0.2940 / 60s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   }
+  },
+  "task_01/33": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No global yaw φ aligns the rest poses: the predicted drawer is rotated about 90° relative to the table, so its side and slide hardware remain exposed when closed instead of its broad front panel covering the opening as in GT. Both use prismatic motion and the drawer translates outward from the correct body face. | $0.2451 / 42s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   }
+  },
+  "task_01/4": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No Z-rotation offset aligns all rest views: the predicted door is flipped/misposed, showing an open cavity where GT shows the door and exposing the wrong door face/hinge details when closed. Both joints are revolute, but their q progression is reversed: GT moves from open at 0% to closed at 100%, while prediction moves from closed to open. | $0.2493 / 51s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_04/2": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] Rest poses align at φ=0° across all four views, and both lid and pedal use revolute motion. However, the lid motion is reversed: GT progresses from open at q=0% to closed at q=100%, while prediction progresses from closed to open. | $0.3608 / 42s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_06/2": {
+   "subagent_verdict": {
+    "passed": true,
+    "scored": true,
+    "detail": "[2/3 votes PASS] φ=0 aligns all four rest views. Both predicted hinges are revolute and correspond to the two GT joints: left_hinge opens the left utensil as q increases, while right_hinge closes the right utensil as q increases, matching GT directions relative to the assembly. | $0.3614 / 63s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": true,
+    "scored": true,
+    "detail": "2/3 votes PASS"
+   }
+  },
+  "task_10/0": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] A 180° yaw best aligns the handle-side pattern, but no rotation fully matches: the predicted case half is vertically offset/inverted, creating an extra gap/lower layer, and the open pose exposes a patterned exterior where GT shows the solid red interior. Both use a revolute hinge and the lid swings outward in the same q-direction. | $0.2704 / 58s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": true,
+    "scored": true,
+    "detail": "2/3 votes PASS"
+   }
+  },
+  "task_19/1": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No yaw offset aligns the assemblies: φ=0 gives the closest body orientation, but the predicted doors are coplanar hinged panels that obscure the lower track, unlike GT's offset sliding-door placement with the exposed lower rail; other φ values mismatch the cabinet faces. Both GT joints translate the doors horizontally along the cabinet, while both predicted joints rotate the doors outward, so motion type and direction do not match. | $0.2475 / 50s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_19/5": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No yaw offset works: φ=0 aligns the cabinet body/front face, but GT has overlapping sliding-door panels with handles near the outer sides, while pred has two half-width doors with central handles; φ=90/180/270 misalign the front and back. Both GT joints translate the panels laterally, whereas both predicted joints are revolute hinges swinging outward, so motion type and direction/trajectory do not match. | $0.2371 / 45s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_25/6": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No yaw offset works: GT has four distinct narrow front door leaves, while pred collapses/overlaps them into two large double-width front sheets. Since both show the back at az135/az225, phi=0 is the only plausible alignment and its front views fail; other phi values mismatch front versus back. All four predicted joints are vertical-axis revolute hinges and swing their leaves outward on the corresponding side, matching GT motion type and direction despite the incorrect leaf placement. | $0.5373 / 50s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   }
+  }
+ },
+ "candidate": {
+  "task_01/22": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] Rest poses align at φ=0° across all four views. Both joints are prismatic drawer slides, but their directions are reversed: as q increases GT moves from extended/open to closed, while prediction moves from closed to extended/open. | $0.1643 / 23s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_01/32": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] The closest alignment is φ=0, but the predicted sliding-door assembly is vertically too low, leaving an oversized top rail and extending the lower framing below the GT placement; no other yaw offset fixes this. Both joints are correctly prismatic, but right_door_slide moves opposite to GT joint_0 as q increases; left_door_slide matches GT joint_1. | $0.2210 / 50s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   }
+  },
+  "task_01/33": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] At φ=0°, all four closed rest views align. Both joints are prismatic drawer slides, but motion is reversed: GT progresses from extended/open at 0% to retracted/closed at 100%, while prediction progresses from closed to extended/open. | $0.2443 / 33s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_01/4": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No Z-rotation offset works: GT has the tan fixed panel on one face and the wooden hinged panel closing the opposite face, while pred places the wooden panel over the tan-panel face and leaves the opposite opening exposed. Both joints are revolute, but motion is reversed across q: GT goes open-to-closed from 0% to 100%, whereas pred goes closed-to-open. | $0.2259 / 62s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_04/2": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] Rest poses align across all four views with φ=0°. Both pedal and lid use revolute hinge motion, but the lid direction is reversed: GT joint_0 progresses from open at 0% to closed at 100%, while predicted lid_hinge progresses from closed to open. | $0.3311 / 48s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_06/2": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] No yaw offset aligns all rest views: at the natural φ=0 alignment, pred is noticeably narrower because one arm is fixed near GT joint_0's 0% pose rather than GT's rest configuration. GT has two independent revolute joints, one per arm, while pred has only one pivot joint, so joint count/type coverage and full motion-direction behavior do not match. | $0.2783 / 64s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_10/0": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[1/3 votes PASS] Rest poses align at phi=0 across all four azimuths; the small split/offset at the gray hinge is minor. Both joints are revolute, but motion is reversed: GT progresses from open at q=0% to closed at q=100%, while prediction progresses from closed to open. | $0.2010 / 49s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   }
+  },
+  "task_19/1": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] At φ=0°, all four rest views align: the two doors occupy the same front face with matching cabinet geometry. Both predicted joints are revolute hinges, as in GT. However, the right door motion is parameter-reversed: GT joint_0 progresses from open to closed, while predicted right_door_hinge progresses from closed to open. The left door direction matches. | $0.2535 / 52s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": true,
+    "scored": true,
+    "detail": "2/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   }
+  },
+  "task_19/5": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[0/3 votes PASS] At φ=0 the cabinet body/front face aligns, but GT has two nearly full-width overlapping sliding panels with handles near the outer edges, while pred places the panels side-by-side with a central seam/handles and visible side overhangs. Other φ values misalign the front and back faces. Both predicted joints are prismatic and match GT directions: the right panel slides left to expose the right side, and the left panel slides right to expose the left side. | $0.2178 / 40s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "0/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   }
+  },
+  "task_25/6": {
+   "subagent_verdict": {
+    "passed": false,
+    "scored": true,
+    "detail": "[1/3 votes PASS] phi=0 is the only possible yaw alignment, but the four predicted doors are collectively recessed/lowered relative to the cabinet opening, unlike GT; the other yaw offsets put the door face on the wrong side. All joints are revolute, but the two left-side predicted doors progress closed-to-open while their GT counterparts progress open-to-closed, so those joint directions are reversed. | $0.4171 / 76s / 3 votes / responses:gpt-5.6-sol"
+   },
+   "subagent_rest_pose": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   },
+   "subagent_motion_type": {
+    "passed": true,
+    "scored": true,
+    "detail": "3/3 votes PASS"
+   },
+   "subagent_motion_direction": {
+    "passed": false,
+    "scored": true,
+    "detail": "1/3 votes PASS"
+   }
+  }
+ }
+}

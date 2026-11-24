@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="AgentAssemble: an LLM agent assembles articulated 3D assets from separate parts and improves its own assembly Skill from evaluator feedback, without any human edit.">
+  <meta name="keywords" content="AgentAssemble, articulated objects, URDF, LLM agents, self-improvement, ArtiAssembly">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentAssemble: Self-Improving Agents for Articulated 3D Asset Assembly</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script type="importmap">
+  { "imports": { "three": "./assets/vendor/three/three.module.js", "three/addons/": "./assets/vendor/three/addons/" } }
+  </script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">AgentAssemble: Self-Improving Agents for Articulated 3D Asset Assembly</h1>
+          <!-- AUTHORS: placeholder, replace the two blocks below -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">First Author<sup>1</sup>,</span>
+            <span class="author-block">Second Author<sup>1</sup>,</span>
+            <span class="author-block">Third Author<sup>2</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>First Institution,</span>
+            <span class="author-block"><sup>2</sup>Second Institution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="assets/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-light" onclick="return false;" title="Coming soon">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-light" onclick="return false;" title="Coming soon">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#benchmark" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span>Benchmark</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#demo" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-cube"></i></span>
+                  <span>3D Demo</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="assets/figures/teaser.png" alt="Experience becomes Skill, Skill guides assembly" style="width:100%;border-radius:8px">
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem">
+        <span class="dnerf">AgentAssemble</span> assembles articulated 3D assets from separate parts and refines its
+        assembly procedure and geometric helpers from the feedback of repeated rollouts.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Articulated 3D assets, doors, drawers, faucets, appliances, are essential ingredients for physical
+            simulation, embodied AI training, and interactive content, yet authoring them remains expensive, because
+            every part must be placed at the right pose and scale and every joint must be given the right pivot and axis.
+            Feed-forward models are trained on a fixed set of categories and struggle with out-of-distribution objects,
+            and procedural scripts must be written by hand for every new category. LLM agents that operate 3D tools
+            generalize further, but they follow a procedure that a human writes once, so the same mistakes recur on
+            every object.
+          </p>
+          <p>
+            We instead let this procedure, the agent's <i>Skill</i>, improve from its own experience. An LLM-driven agent
+            is given separate part meshes, a reference image, and a kinematic template, and must produce a valid
+            description file. We present AgentAssemble, a self-improvement framework with two nested loops. In the inner
+            Runtime Assembly Loop, an Executor agent assembles the parts under the current Skill, while a Runtime
+            Validator script checks intermediate results without ground truth. In the outer Self-Improvement Loop, a
+            GT-based Evaluator script scores each predicted URDF kinematically, invariant to naming, axis sign, and
+            offset placement, and a Skill Evolver agent rewrites the Skill, including its checks and helper tools, from
+            the resulting diagnostics. Both loops run on a lightweight, agent-native simulation and rendering engine on
+            which many agents assemble in parallel.
+          </p>
+          <p>
+            We also introduce <i>ArtiAssembly</i>, a benchmark of 300 articulated objects with ground-truth URDFs and
+            sanitized part meshes. Experiments show that, through self-improvement alone and without any human edit,
+            AgentAssemble raises the fitness on objects of held-out categories from 0.474 to 0.681, and that the
+            improved Skill transfers to other Executor models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            The Skill is a directory with a Markdown procedure, deterministic helper scripts, and the contract of the
+            runtime. It is the only component that changes between rounds. The backbone LLM, the simulation runtime,
+            and the evaluation stay frozen.
+          </p>
+        </div>
+        <figure class="aa-fig">
+          <img src="assets/figures/pipeline.png" alt="AgentAssemble pipeline">
+          <figcaption><b>Framework overview.</b> The Runtime Assembly Loop runs once per object. The Self-Improvement Loop runs once per round over a batch of training objects and returns a revised Skill.</figcaption>
+        </figure>
+        <div class="content has-text-justified">
+          <p>
+            <b>Runtime Assembly Loop.</b> The Executor works through one tool, a persistent Python session with a frozen
+            Assembly SDK. It imports the parts, authors links and joints, drives every joint through its range, renders
+            the result, and revises the assembly from the checks of the Runtime Validator, a script that runs without
+            ground truth.
+          </p>
+          <p>
+            <b>Kinematic evaluation.</b> The same mechanism has many URDF encodings. The GT-based Evaluator matches links
+            by geometry and compares the motion of the predicted and the ground-truth URDF, so its score is invariant to
+            naming, axis sign, and offset placement. It returns a pass predicate, a graded fitness, and per-joint
+            diagnostics.
+          </p>
+          <p>
+            <b>Two-layer regression strategy.</b> The Skill Evolver first tests each edit on three train objects of the
+            failure cluster that the edit addresses. The candidate Skill must then exceed the current champion on a
+            separate validation split by 1.5 standard errors, with three sessions per object.
+          </p>
+        </div>
+        <figure class="aa-fig">
+          <img src="assets/figures/metrics_overview.png" alt="How assemblies are scored">
+          <figcaption><b>How assemblies are scored.</b> A single-door cabinet under a correct prediction and four perturbations of the hinge. Each perturbation trips the dimension it targets, and the per-joint record tells the Skill Evolver what went wrong.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            The run starts from a seed Skill <i>S</i><sub>0</sub> that states only the input, the output, and the SDK. It lasts twelve
+            rounds with <code>gpt-6.1-sol</code> as the backbone of both agents and receives no human edit. The
+            validation gate accepted three of the nine edited candidates, <i>S</i><sub>3</sub>, <i>S</i><sub>6</sub>, and <i>S</i><sub>9</sub>, each by a paired
+            gain of 0.06 to 0.09 fitness. On the 40 held-out test objects, the final champion <i>S</i><sub>9</sub> raises fitness from
+            0.474 to 0.681 and Pass Rate from 30.0% to 52.5%.
+          </p>
+        </div>
+        <figure class="aa-fig">
+          <img src="assets/figures/evolution_gate.png" alt="Self-improvement of the Skill">
+          <figcaption><b>Self-improvement of the Skill.</b> (a) Fitness on the train, validation, and test splits. (b) The edit that the Skill Evolver proposed in every round and the decision of the validation gate.</figcaption>
+        </figure>
+        <h3 class="title is-4" style="margin-top:2rem">What the Skill Evolver wrote</h3>
+        <div class="columns aa-edits">
+          <div class="column"><div class="box"><p><span class="tag is-dark">S3</span> <b>Root-registered rest-pose check</b></p>
+            <p class="is-size-6">A helper segments the render and the reference image by link color, registers them on the fixed root link, and reports the offset of every link. A displaced link of the right size points to a misplaced pivot.</p></div></div>
+          <div class="column"><div class="box"><p><span class="tag is-dark">S6</span> <b>Depth from the parent geometry</b></p>
+            <p class="is-size-6">An image offset fixes two of the three coordinates of a pivot. The Skill takes the third from the attachment geometry of the parent, such as a bearing, a hinge edge, or a socket.</p></div></div>
+          <div class="column"><div class="box"><p><span class="tag is-dark">S9</span> <b>Bearings from circular rims</b></p>
+            <p class="is-size-6">A helper extracts closed circular edge loops from the meshes. Matching the rims of a child with those of its parent constrains the rotation of the part and the joint axis.</p></div></div>
+        </div>
+        <figure class="aa-fig">
+          <img src="assets/figures/qualitative.png" alt="Qualitative results">
+          <figcaption><b>Qualitative results</b> of two existing methods, the seed Skill, and the accepted Skills on four test objects. The number in each cell is the fitness of the session.</figcaption>
+        </figure>
+        <h3 class="title is-4" style="margin-top:2rem">Transfer across Executor models</h3>
+        <div class="content has-text-justified">
+          <p>The Skills were obtained with <code>gpt-6.1-sol</code> only. Run unchanged with three other Executor models, <i>S</i><sub>9</sub> improves over the seed Skill by 0.165 to 0.256 fitness under every model.</p>
+        </div>
+        <div class="aa-table-wrap">
+          <table class="table is-fullwidth is-hoverable aa-table">
+            <thead><tr><th>Executor model</th><th class="num">Fitness <i>S</i><sub>0</sub></th><th class="num">Fitness <i>S</i><sub>9</sub></th><th class="num">Pass Rate <i>S</i><sub>0</sub> (%)</th><th class="num">Pass Rate <i>S</i><sub>9</sub> (%)</th><th class="num">Paired fitness gain</th></tr></thead>
+            <tbody>
+            <tr><td>gpt-6.1-sol</td><td class="num">0.474</td><td class="num">0.681</td><td class="num">30.0</td><td class="num">52.5</td><td class="num">+0.207 &plusmn; 0.041</td></tr>
+            <tr><td>claude-opus-5-5</td><td class="num">0.387</td><td class="num">0.552</td><td class="num">18.3</td><td class="num">33.3</td><td class="num">+0.165 &plusmn; 0.034</td></tr>
+            <tr><td>gpt-6.1-terra</td><td class="num">0.316</td><td class="num">0.572</td><td class="num">18.3</td><td class="num">39.2</td><td class="num">+0.256 &plusmn; 0.039</td></tr>
+            <tr><td>gpt-6-astra</td><td class="num">0.568</td><td class="num">0.814</td><td class="num">43.3</td><td class="num">71.7</td><td class="num">+0.246 &plusmn; 0.049</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="aa-cap">Test split, 40 objects with three sessions each. The gain is the mean per-object difference with its standard error.</p>
+        <h3 class="title is-4" style="margin-top:2rem">Comparison with existing methods</h3>
+        <div class="content has-text-justified">
+          <p>Particulate and USDCraft take the assembled mesh as input and predict the part segmentation and the kinematic tree themselves, whereas our Executor receives the separated parts at scrambled pose and scale together with the template. The inputs therefore differ, and the comparison serves as a reference on the same objects.</p>
+        </div>
+        <div class="aa-table-wrap">
+          <table class="table is-fullwidth is-hoverable aa-table">
+            <thead><tr><th>Method</th><th>Model</th><th class="num">Joints</th><th class="num">Axis</th><th class="num">Pivot</th><th class="num">Motion</th><th class="num">Objects</th></tr></thead>
+            <tbody>
+            <tr><td>Particulate</td><td>&ndash;</td><td class="num">19.2</td><td class="num">30.4</td><td class="num">18.7</td><td class="num">20.0</td><td class="num">22.5</td></tr>
+            <tr><td>USDCraft</td><td>astra</td><td class="num">83.2</td><td class="num">84.0</td><td class="num">81.3</td><td class="num">83.2</td><td class="num">75.0</td></tr>
+            <tr><td>Ours, <i>S</i><sub>0</sub></td><td>sol</td><td class="num">76.0</td><td class="num">91.5</td><td class="num">77.3</td><td class="num">78.1</td><td class="num">62.5</td></tr>
+            <tr><td>Ours, <i>S</i><sub>9</sub></td><td>sol</td><td class="num">89.1</td><td class="num">93.9</td><td class="num">87.5</td><td class="num">89.9</td><td class="num">85.8</td></tr>
+            <tr><td>Ours, <i>S</i><sub>0</sub></td><td>astra</td><td class="num">81.6</td><td class="num">94.4</td><td class="num">82.8</td><td class="num">83.5</td><td class="num">70.0</td></tr>
+            <tr class="ours"><td>Ours, <i>S</i><sub>9</sub></td><td>astra</td><td class="num">93.6</td><td class="num">96.5</td><td class="num">94.1</td><td class="num">94.1</td><td class="num">92.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="aa-cap">Share of correct joints and of objects with all joints correct on the 40 test objects, in percent. Axis, Pivot, and Motion count the joints that are correct in that respect.</p>
+        <h3 class="title is-4" style="margin-top:2rem">Ablation</h3>
+        <div class="aa-table-wrap">
+          <table class="table is-fullwidth is-hoverable aa-table">
+            <thead><tr><th>Skill</th><th class="num">Fitness</th><th class="num">Pass Rate (%)</th><th class="num">Gain over <i>S</i><sub>0</sub></th></tr></thead>
+            <tbody>
+            <tr><td>Seed Skill <i>S</i><sub>0</sub></td><td class="num">0.474</td><td class="num">30.0</td><td class="num">&ndash;</td></tr>
+            <tr><td>Human-curated Skill</td><td class="num">0.541</td><td class="num">37.5</td><td class="num">+0.067 &plusmn; 0.024</td></tr>
+            <tr><td>Without regression strategy</td><td class="num">0.475</td><td class="num">30.0</td><td class="num">+0.001 &plusmn; 0.032</td></tr>
+            <tr><td>Without diagnostics</td><td class="num">0.609</td><td class="num">47.5</td><td class="num">+0.135 &plusmn; 0.030</td></tr>
+            <tr class="ours"><td>Full method (<i>S</i><sub>9</sub>)</td><td class="num">0.681</td><td class="num">52.5</td><td class="num">+0.207 &plusmn; 0.041</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="aa-cap">Test split with gpt-6.1-sol. Without the regression strategy every edit is kept, and the Skill of round 9 falls back to the level of the seed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Interactive Objects</h2>
+        <div class="content has-text-justified">
+          <p>These are ground-truth objects of the ArtiAssembly test split. Pick an object and drag the sliders to drive each joint. Moving links are color-coded and the root link is grey. Drag to orbit and scroll to zoom.</p>
+        </div>
+        <div class="viewer-wrap">
+          <div class="gl-stage" id="gl-stage">
+            <canvas id="gl"></canvas>
+            <div class="gl-caption"><div class="t" id="gl-title">&nbsp;</div><div class="s" id="gl-sub">&nbsp;</div></div>
+            <div class="gl-hint">drag to orbit &middot; scroll to zoom</div>
+            <div class="gl-loading" id="gl-loading"><span class="spin"></span> loading 3D&hellip;</div>
+          </div>
+          <div class="viewer-panel">
+            <div><div class="panel-h">Object</div><div class="model-chips" id="model-chips"></div></div>
+            <div><div class="panel-h">Joints</div><div class="joint-sliders" id="joint-sliders"></div></div>
+            <div class="viewer-btns">
+              <button class="vbtn" id="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Play</button>
+              <button class="vbtn" id="btn-reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg> Rest</button>
+              <button class="vbtn" id="btn-rotate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg> Spin</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="benchmark">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The ArtiAssembly Benchmark</h2>
+        <div class="content has-text-justified">
+          <p>ArtiAssembly holds 300 articulated everyday objects in four tiers of complexity, and every object belongs to its own category across 26 domains. For each object the geometry is merged into one mesh per link, every semantic name and material is replaced with a neutral index and a flat color, every non-root mesh is rotated and rescaled at random, and the joint origins, joint axes, link orientations, and link scales are blanked in the URDF template that the agent must fill.</p>
+        </div>
+        <figure class="aa-fig">
+          <img src="assets/figures/dataset_sample.png" alt="One ArtiAssembly instance">
+          <figcaption><b>One instance of ArtiAssembly</b>, from the generated object to the task that the agent receives.</figcaption>
+        </figure>
+        <div class="columns is-vcentered" style="margin-top:1rem">
+          <div class="column">
+        <div class="aa-table-wrap">
+          <table class="table is-fullwidth is-hoverable aa-table">
+            <thead><tr><th>Dataset</th><th class="num">Objects</th><th class="num">Categories</th><th>Format</th></tr></thead>
+            <tbody>
+            <tr><td>PartNet-Mobility</td><td class="num">2346</td><td class="num">46</td><td>URDF</td></tr>
+            <tr><td>ArtVIP</td><td class="num">992</td><td class="num">37</td><td>USD</td></tr>
+            <tr><td>Lightwheel</td><td class="num">259</td><td class="num">14</td><td>USD</td></tr>
+            <tr class="ours"><td>ArtiAssembly</td><td class="num">300</td><td class="num">300</td><td>URDF</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="aa-cap">ArtiAssembly also defines complexity tiers and releases the parametric source code of the geometry.</p>
+          </div>
+          <div class="column">
+            <figure class="aa-fig" style="margin-top:0"><img src="assets/figures/dataset_stats.png" alt="Objects by number of movable joints"><figcaption>The 300 objects by number of movable joints, split by tier.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{agentassemble2026,
+  author  = {Author names to be added},
+  title   = {AgentAssemble: Self-Improving Agents for Articulated 3D Asset Assembly},
+  journal = {arXiv preprint},
+  year    = {2026},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="assets/paper.pdf"><i class="fas fa-file-pdf"></i></a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The page uses the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of the Nerfies website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/viewer.js"></script>
+</body>
+</html>

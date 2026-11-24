@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentassemble"
+version = "0.1.0"
+description = "AgentAssemble: self-improving agents for articulated 3D asset assembly (part meshes and a kinematic template to URDF)."
+requires-python = ">=3.10"
+# Core runtime: OpenAI Agents SDK + Responses is the default training path.
+# claude-agent-sdk remains available only for the explicit legacy backend.
+# and reads YAML config. Use the `evo` CLI (or `python -m evo.engine.loop`),
+# or install editable: pip install -e .
+dependencies = [
+    "openai-agents==0.8.4",
+    # openai>=2.45 made InputTokensDetails.cache_write_tokens a required field,
+    # which agents 0.8.4 does not supply when it builds its default Usage —
+    # every Responses run then dies in Runner.run() with a pydantic
+    # ValidationError before reaching the provider. Cap it until the pinned
+    # agents version is upgraded.
+    "openai>=2.19,<2.45",
+    "claude-agent-sdk",
+    "pyyaml",
+    "questionary",   # interactive `evo` CLI (degrades to stdlib input() if absent)
+    # Oracle renderer backend (three.js + Rapier headless sim). The Node server
+    # ships in the light-3js-phyx repo — point LIGHTPHYX_CLI at its
+    # packages/server/dist/cli.js, or install the repo alongside and the SDK
+    # finds it. For local dev prefer: pip install -e <light-3js-phyx>/sdk/python
+    "lightphyx @ git+https://github.com/dougefla/light-3js-phyx.git@aadfa989573a503b7432dccf63d937e9b0531710#subdirectory=sdk/python",
+]
+
+[project.scripts]
+evo = "evo.cli:main"
+
+[project.optional-dependencies]
+# Codex backend needs no extra packages: the stdio MCP bridge ships in-repo
+# (evo/engine/sim_mcp_bridge.py) and Codex launches it with
+# `python -m evo.engine.sim_mcp_bridge`. The `codex` CLI itself is installed
+# separately, e.g. `npm i -g @openai/codex` or `brew install codex`.
+# Tests.
+dev = ["pytest"]
+# Geometry/imaging libraries the Executor reaches for when it writes assembly
+# code. Before these were installed it hit ModuleNotFoundError on trimesh,
+# scipy and PIL across run 4 (6x), run 5 (2x) and run 6 (1x); each one burned
+# the single code retry and could fail the task outright. They are Executor
+# runtime, not engine dependencies — nothing under evo/ imports them.
+executor = ["scipy", "trimesh", "Pillow", "networkx", "matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["evo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
