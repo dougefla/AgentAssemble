@@ -22,8 +22,9 @@ The agent works on a view of the dataset in which the answers are removed.
 
 ```
 <EVO_DATASET_ROOT>/
-  tasks/<task_id>/0/parts/      part_<i>.obj, template.urdf, render_thumbnail.png   (what the Executor sees)
-  gt/<task_id>/0/               scene.urdf and assets                               (Evaluator only)
+  tasks/<task_id>/0/parts/         part_<i>.obj and template.urdf    (what the Executor sees)
+  tasks/<task_id>/0/thumbnail.png  reference image
+  gt/<task_id>/0/                  scene.urdf and assets             (Evaluator only)
   splits.json, index.json, mapping.json, dataset_variant.json
 ```
 
@@ -36,7 +37,15 @@ the scaling and writes the template, and `subset_view.py` cuts the evaluation su
 
 ## Download
 
-The download link of the objects and of the prepared task view will be added here.
+Three archives are provided (link to be added).
+
+| Archive | Content | Size |
+|---|---|---|
+| `ArtiAssembly_eval120.tar.gz` | task view of the 120-object evaluation subset, used by all experiments of the paper | 0.5 GB |
+| `ArtiAssembly_tasks300.tar.gz` | task view of all 300 objects | 1.2 GB |
+| `ArtiAssembly_objects.tar.gz` | the 300 source objects with OpenSCAD source, meshes, URDF, USD, and renders | 4.7 GB |
+
+Unpack `ArtiAssembly_eval120.tar.gz` and set `EVO_DATASET_ROOT` to the unpacked folder.
 
 ## License
 
