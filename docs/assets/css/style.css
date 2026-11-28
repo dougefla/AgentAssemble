@@ -1101,3 +1101,6 @@ input[type=range]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 3px var(--
 .tm-rail.playing .tm-rail-fill, #tm-svg.playing #tm-champ-line, #tm-svg.playing .cursor { transition: none; }
 #tm-svg .pt { transition: r .5s cubic-bezier(.2, .7, .2, 1), opacity .5s; }
 @media (max-width: 760px) { .tm-rail-fill { display: none; } }
+
+/* logo */
+.logo { width: 18px; height: 18px; display: block; flex: none; }
