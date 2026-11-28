@@ -1,0 +1,101 @@
+{
+ "label": "Slot machine",
+ "task": "task_263",
+ "slug": "slot_machine",
+ "up": "z",
+ "root": "link_0",
+ "links": [
+  "link_0",
+  "link_1",
+  "link_2",
+  "link_3",
+  "link_4"
+ ],
+ "joints": [
+  {
+   "name": "joint_0",
+   "type": "continuous",
+   "parent": "link_0",
+   "child": "link_1",
+   "origin": [
+    -0.08,
+    0.018,
+    0.2913
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -3.14159,
+   "upper": 3.14159
+  },
+  {
+   "name": "joint_1",
+   "type": "continuous",
+   "parent": "link_0",
+   "child": "link_2",
+   "origin": [
+    0.0,
+    0.018,
+    0.2913
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -3.14159,
+   "upper": 3.14159
+  },
+  {
+   "name": "joint_2",
+   "type": "continuous",
+   "parent": "link_0",
+   "child": "link_3",
+   "origin": [
+    0.08,
+    0.018,
+    0.2913
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -3.14159,
+   "upper": 3.14159
+  },
+  {
+   "name": "joint_3",
+   "type": "revolute",
+   "parent": "link_0",
+   "child": "link_4",
+   "origin": [
+    0.1655,
+    0.005,
+    0.2263
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -0.05236,
+   "upper": 1.48353
+  }
+ ],
+ "bbox": {
+  "min": [
+   -0.15,
+   -0.1467,
+   -0.0081
+  ],
+  "max": [
+   0.1985,
+   0.1175,
+   0.4628
+  ]
+ },
+ "faces": 43218
+}

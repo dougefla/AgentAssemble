@@ -1,0 +1,63 @@
+{
+ "label": "Computer desk",
+ "task": "task_179",
+ "slug": "computer_desk",
+ "up": "z",
+ "root": "link_0",
+ "links": [
+  "link_0",
+  "link_1",
+  "link_2"
+ ],
+ "joints": [
+  {
+   "name": "joint_0",
+   "type": "prismatic",
+   "parent": "link_0",
+   "child": "link_1",
+   "origin": [
+    -0.1855,
+    -0.15,
+    0.631
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": 0.0,
+   "upper": 0.19
+  },
+  {
+   "name": "joint_1",
+   "type": "prismatic",
+   "parent": "link_0",
+   "child": "link_2",
+   "origin": [
+    0.3955,
+    -0.15,
+    0.553
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": 0.0,
+   "upper": 0.19
+  }
+ ],
+ "bbox": {
+  "min": [
+   -0.6,
+   -0.5094,
+   -0.0068
+  ],
+  "max": [
+   0.6,
+   0.3,
+   0.75
+  ]
+ },
+ "faces": 30640
+}

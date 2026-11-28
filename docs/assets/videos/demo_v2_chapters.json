@@ -1,0 +1,52 @@
+[
+ {
+  "t": 0,
+  "title": "Loose parts in",
+  "note": "parts snap into objects"
+ },
+ {
+  "t": 8.6,
+  "title": "The task",
+  "note": "meshes, image, and template"
+ },
+ {
+  "t": 17.6,
+  "title": "Two nested loops",
+  "note": "assembly inside self-improvement"
+ },
+ {
+  "t": 29.4,
+  "title": "Runtime assembly loop",
+  "note": "act, simulate, and check"
+ },
+ {
+  "t": 38.6,
+  "title": "GT-based Evaluator",
+  "note": "a diagnosis per joint"
+ },
+ {
+  "t": 47.2,
+  "title": "Self-improvement loop",
+  "note": "cluster, edit, and regression"
+ },
+ {
+  "t": 57.4,
+  "title": "Twelve rounds",
+  "note": "three Skills are accepted"
+ },
+ {
+  "t": 67,
+  "title": "Held-out objects",
+  "note": "seed fails, S9 passes"
+ },
+ {
+  "t": 82.1,
+  "title": "Transfer",
+  "note": "four Executor models tested"
+ },
+ {
+  "t": 89.9,
+  "title": "ArtiAssembly",
+  "note": "300 objects, four tiers"
+ }
+]

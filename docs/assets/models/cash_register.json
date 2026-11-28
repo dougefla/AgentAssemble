@@ -1,0 +1,63 @@
+{
+ "label": "Cash register",
+ "task": "task_203",
+ "slug": "cash_register",
+ "up": "z",
+ "root": "link_0",
+ "links": [
+  "link_0",
+  "link_1",
+  "link_2"
+ ],
+ "joints": [
+  {
+   "name": "joint_0",
+   "type": "prismatic",
+   "parent": "link_0",
+   "child": "link_1",
+   "origin": [
+    0.0,
+    -0.19,
+    0.043
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "lower": 0.0,
+   "upper": 0.19
+  },
+  {
+   "name": "joint_1",
+   "type": "revolute",
+   "parent": "link_0",
+   "child": "link_2",
+   "origin": [
+    -0.103,
+    0.13538,
+    0.19672
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "lower": -0.17453,
+   "upper": 1.81577
+  }
+ ],
+ "bbox": {
+  "min": [
+   -0.1801,
+   -0.3486,
+   0.0
+  ],
+  "max": [
+   0.18,
+   0.1661,
+   0.2799
+  ]
+ },
+ "faces": 44490
+}
