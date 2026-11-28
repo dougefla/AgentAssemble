@@ -2,7 +2,7 @@
 
 Code for the paper **AgentAssemble: Self-Improving Agents for Articulated 3D Asset Assembly**.
 
-[Project page](docs/index.html) · [Paper](docs/assets/paper.pdf)
+[Project page](https://dougefla.github.io/AgentAssemble/) · [Paper](docs/assets/paper.pdf)
 
 An LLM agent receives the separate part meshes of an articulated object, one reference image, and a
 kinematic template, and it has to write the complete URDF. The procedure that the agent follows is a
@@ -16,7 +16,7 @@ the agent's own rollouts and needs no human edit.
   each edit on train objects of its cluster. A candidate Skill replaces the current one only when it wins a
   paired comparison on a separate validation split.
 
-![Framework overview](docs/assets/figures/pipeline.png)
+![Framework overview](assets/pipeline.png)
 
 ## Results
 
